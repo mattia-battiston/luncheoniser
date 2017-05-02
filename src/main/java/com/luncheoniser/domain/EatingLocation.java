@@ -1,4 +1,4 @@
-package com.luncheoniser.controller.dto;
+package com.luncheoniser.domain;
 
 public enum EatingLocation {
 

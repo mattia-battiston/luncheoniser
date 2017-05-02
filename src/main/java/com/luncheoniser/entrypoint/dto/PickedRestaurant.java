@@ -1,4 +1,6 @@
-package com.luncheoniser.controller.dto;
+package com.luncheoniser.entrypoint.dto;
+
+import com.luncheoniser.domain.EatingLocation;
 
 public class PickedRestaurant {
 
@@ -7,9 +9,9 @@ public class PickedRestaurant {
     private final String priceRange;
     private final String avgRating;
     private final String pictureLink;
-    private final EatingLocation eatingLocation;
+    private final String eatingLocation;
 
-    public PickedRestaurant(String restaurantName, String cuisineType, String priceRange, String avgRating, String pictureLink, EatingLocation eatingLocation) {
+    public PickedRestaurant(String restaurantName, String cuisineType, String priceRange, String avgRating, String pictureLink, String eatingLocation) {
         this.restaurantName = restaurantName;
         this.cuisineType = cuisineType;
         this.priceRange = priceRange;
@@ -38,7 +40,7 @@ public class PickedRestaurant {
         return pictureLink;
     }
 
-    public EatingLocation getEatingLocation() {
+    public String getEatingLocation() {
         return eatingLocation;
     }
 }
