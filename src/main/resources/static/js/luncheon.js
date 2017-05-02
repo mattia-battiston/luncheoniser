@@ -18,7 +18,7 @@ $(document).ready(function(){
                         restaurantName =  "<h2 id='" + key + "'>" + val + "</h2>" ;
                         break;
                     case ("pictureLink"):
-                        pictureLink =  "<img id='" + key + "' src='" + val + "' alt='restaurant_img' class='restaurantPicture' />" ;
+                        pictureLink =  "<img id='" + key + "' src='" + val + "' alt='restaurant_img' class='img-responsive' />" ;
                         break;
                     case ("cuisineType"):
                         cuisineType =   "<p id='" + key + "'>Cuisine: " + val + "</p>" ;
@@ -38,16 +38,16 @@ $(document).ready(function(){
                 }
             });
 
-            $("#results").append(restaurantName);
-            $("#results").append(pictureLink);
-            $("#results").append(cuisineType);
-            $("#results").append(priceRange);
-            $("#results").append(avgRating);
+            $("#results > #name").append(restaurantName);
+            $("#results > #picture").append(pictureLink);
+            $("#results > #details").append(cuisineType);
+            $("#results > #details").append(priceRange);
+            $("#results > #details").append(avgRating);
             if(eatIn) {
-                $("#results").append("<p><i class='fa fa-cutlery fa-lg'></i></p>");
+                $("#results > #details").append("<p><i class='fa fa-cutlery fa-lg'></i></p>");
             }
             if(takeAway) {
-                $("#results").append("<p><i class='fa fa-home fa-lg'></i></p>");
+                $("#results > #details").append("<p><i class='fa fa-home fa-lg'></i></p>");
             }
 
         });
