@@ -46,7 +46,7 @@ public class PickLuncheonController {
                 restaurant.getId(),
                 restaurant.getName(),
                 restaurant.getCuisineType().name(),
-                restaurant.getPriceRange().toString(),
+                restaurant.getPriceRange().toSymbol(),
                 String.valueOf(restaurant.getAverageRating()),
                 restaurant.getPictureLink(),
                 restaurant.isEatIn(),

@@ -18,8 +18,13 @@ public class PriceRange {
         return max;
     }
 
-    @Override
-    public String toString() {
-        return min + "-" +  max;
+    public String toSymbol() {
+        if(max <= 5) {
+            return "£";
+        } else if (max <= 10) {
+            return "££";
+        } else {
+            return "£££";
+        }
     }
 }
