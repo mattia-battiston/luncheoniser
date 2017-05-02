@@ -2,6 +2,7 @@ package com.luncheoniser.domain;
 
 public class Restaurant {
 
+    private final int id;
     private final String name;
     private final CuisineType cuisineType;
     private final PriceRange priceRange;
@@ -10,7 +11,8 @@ public class Restaurant {
     private final boolean eatIn;
     private final boolean takeAway;
 
-    public Restaurant(String name, CuisineType cuisineType, PriceRange priceRange, double averageRating, String pictureLink, boolean eatIn, boolean takeAway) {
+    public Restaurant(int id, String name, CuisineType cuisineType, PriceRange priceRange, double averageRating, String pictureLink, boolean eatIn, boolean takeAway) {
+        this.id = id;
         this.name = name;
         this.cuisineType = cuisineType;
         this.priceRange = priceRange;
@@ -18,6 +20,10 @@ public class Restaurant {
         this.pictureLink = pictureLink;
         this.eatIn = eatIn;
         this.takeAway = takeAway;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {

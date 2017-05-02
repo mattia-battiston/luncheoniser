@@ -2,6 +2,7 @@ package com.luncheoniser.entrypoint.dto;
 
 public class PickedRestaurant {
 
+    private int id;
     private final String restaurantName;
     private final String cuisineType;
     private final String priceRange;
@@ -10,7 +11,8 @@ public class PickedRestaurant {
     private final boolean eatIn;
     private final boolean takeAway;
 
-    public PickedRestaurant(String restaurantName, String cuisineType, String priceRange, String avgRating, String pictureLink, boolean eatIn, boolean takeAway) {
+    public PickedRestaurant(int id, String restaurantName, String cuisineType, String priceRange, String avgRating, String pictureLink, boolean eatIn, boolean takeAway) {
+        this.id = id;
         this.restaurantName = restaurantName;
         this.cuisineType = cuisineType;
         this.priceRange = priceRange;
@@ -18,6 +20,10 @@ public class PickedRestaurant {
         this.pictureLink = pictureLink;
         this.eatIn = eatIn;
         this.takeAway = takeAway;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getRestaurantName() {

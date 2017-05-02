@@ -6,6 +6,7 @@ import com.luncheoniser.domain.Restaurant;
 
 public class RestaurantBuilder {
 
+    private int id;
     private String name;
     private CuisineType cuisineType;
     private PriceRange priceRange;
@@ -15,7 +16,7 @@ public class RestaurantBuilder {
     private boolean takeAway;
 
     public Restaurant build() {
-        return new Restaurant(name, cuisineType, priceRange, averageRating, pictureLink, eatIn, takeAway);
+        return new Restaurant(id, name, cuisineType, priceRange, averageRating, pictureLink, eatIn, takeAway);
     }
 
     public RestaurantBuilder withName(String name) {
@@ -53,4 +54,8 @@ public class RestaurantBuilder {
         return this;
     }
 
+    public RestaurantBuilder withId(int id) {
+        this.id = id;
+        return this;
+    }
 }

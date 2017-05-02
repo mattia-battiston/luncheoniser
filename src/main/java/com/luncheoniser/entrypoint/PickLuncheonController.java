@@ -24,6 +24,7 @@ public class PickLuncheonController {
         Restaurant restaurant = pickLuncheonUseCase.pickLuncheon();
 
         return new PickedRestaurant(
+                restaurant.getId(),
                 restaurant.getName(),
                 restaurant.getCuisineType().name(),
                 restaurant.getPriceRange().toString(),
