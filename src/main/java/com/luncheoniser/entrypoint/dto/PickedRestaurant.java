@@ -1,7 +1,5 @@
 package com.luncheoniser.entrypoint.dto;
 
-import com.luncheoniser.domain.EatingLocation;
-
 public class PickedRestaurant {
 
     private final String restaurantName;
@@ -9,15 +7,17 @@ public class PickedRestaurant {
     private final String priceRange;
     private final String avgRating;
     private final String pictureLink;
-    private final String eatingLocation;
+    private final boolean eatIn;
+    private final boolean takeAway;
 
-    public PickedRestaurant(String restaurantName, String cuisineType, String priceRange, String avgRating, String pictureLink, String eatingLocation) {
+    public PickedRestaurant(String restaurantName, String cuisineType, String priceRange, String avgRating, String pictureLink, boolean eatIn, boolean takeAway) {
         this.restaurantName = restaurantName;
         this.cuisineType = cuisineType;
         this.priceRange = priceRange;
         this.avgRating = avgRating;
         this.pictureLink = pictureLink;
-        this.eatingLocation = eatingLocation;
+        this.eatIn = eatIn;
+        this.takeAway = takeAway;
     }
 
     public String getRestaurantName() {
@@ -40,7 +40,11 @@ public class PickedRestaurant {
         return pictureLink;
     }
 
-    public String getEatingLocation() {
-        return eatingLocation;
+    public boolean isEatIn() {
+        return eatIn;
+    }
+
+    public boolean isTakeAway() {
+        return takeAway;
     }
 }

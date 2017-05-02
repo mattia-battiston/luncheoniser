@@ -20,6 +20,10 @@ public class PickLuncheonUseCase {
     public Restaurant pickLuncheon() {
         List<Restaurant> allLocalRestaurants = getAllLocalRestaurants.getAllLocalRestaurants();
 
+        return pickARandomRestaurant(allLocalRestaurants);
+    }
+
+    private Restaurant pickARandomRestaurant(List<Restaurant> allLocalRestaurants) {
         int restaurantIndex = new Random().nextInt(allLocalRestaurants.size());
         return allLocalRestaurants.get(restaurantIndex);
     }

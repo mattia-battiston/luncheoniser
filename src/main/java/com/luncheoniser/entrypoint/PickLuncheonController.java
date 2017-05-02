@@ -29,7 +29,8 @@ public class PickLuncheonController {
                 restaurant.getPriceRange().toString(),
                 String.valueOf(restaurant.getAverageRating()),
                 restaurant.getPictureLink(),
-                restaurant.getEatingLocation().name()
+                restaurant.isEatIn(),
+                restaurant.isTakeAway()
         );
     }
 

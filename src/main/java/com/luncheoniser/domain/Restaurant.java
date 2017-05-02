@@ -7,15 +7,17 @@ public class Restaurant {
     private final PriceRange priceRange;
     private final double averageRating;
     private final String pictureLink;
-    private final EatingLocation eatingLocation;
+    private final boolean eatIn;
+    private final boolean takeAway;
 
-    public Restaurant(String name, CuisineType cuisineType, PriceRange priceRange, double averageRating, String pictureLink, EatingLocation eatingLocation) {
+    public Restaurant(String name, CuisineType cuisineType, PriceRange priceRange, double averageRating, String pictureLink, boolean eatIn, boolean takeAway) {
         this.name = name;
         this.cuisineType = cuisineType;
         this.priceRange = priceRange;
         this.averageRating = averageRating;
         this.pictureLink = pictureLink;
-        this.eatingLocation = eatingLocation;
+        this.eatIn = eatIn;
+        this.takeAway = takeAway;
     }
 
     public String getName() {
@@ -38,7 +40,11 @@ public class Restaurant {
         return pictureLink;
     }
 
-    public EatingLocation getEatingLocation() {
-        return eatingLocation;
+    public boolean isEatIn() {
+        return eatIn;
+    }
+
+    public boolean isTakeAway() {
+        return takeAway;
     }
 }

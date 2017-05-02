@@ -1,7 +1,6 @@
 package com.luncheoniser.domain.builder;
 
 import com.luncheoniser.domain.CuisineType;
-import com.luncheoniser.domain.EatingLocation;
 import com.luncheoniser.domain.PriceRange;
 import com.luncheoniser.domain.Restaurant;
 
@@ -12,11 +11,11 @@ public class RestaurantBuilder {
     private PriceRange priceRange;
     private double averageRating;
     private String pictureLink;
-    private EatingLocation eatingLocation;
-
+    private boolean eatIn;
+    private boolean takeAway;
 
     public Restaurant build() {
-        return new Restaurant(name, cuisineType, priceRange, averageRating, pictureLink, eatingLocation);
+        return new Restaurant(name, cuisineType, priceRange, averageRating, pictureLink, eatIn, takeAway);
     }
 
     public RestaurantBuilder withName(String name) {
@@ -44,10 +43,14 @@ public class RestaurantBuilder {
         return this;
     }
 
-    public RestaurantBuilder withEatingLocation(EatingLocation eatingLocation) {
-        this.eatingLocation = eatingLocation;
+    public RestaurantBuilder canEatIn() {
+        this.eatIn = true;
         return this;
     }
 
+    public RestaurantBuilder canTakeAway() {
+        this.takeAway = true;
+        return this;
+    }
 
 }
