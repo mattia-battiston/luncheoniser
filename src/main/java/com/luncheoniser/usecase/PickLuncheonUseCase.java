@@ -4,6 +4,9 @@ import com.luncheoniser.domain.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Random;
+
 @Component
 public class PickLuncheonUseCase {
 
@@ -15,7 +18,10 @@ public class PickLuncheonUseCase {
     }
 
     public Restaurant pickLuncheon() {
-        return getAllLocalRestaurants.getAllLocalRestaurants().get(0);
+        List<Restaurant> allLocalRestaurants = getAllLocalRestaurants.getAllLocalRestaurants();
+
+        int restaurantIndex = new Random().nextInt(allLocalRestaurants.size());
+        return allLocalRestaurants.get(restaurantIndex);
     }
 
 }
