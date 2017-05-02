@@ -38,6 +38,9 @@ $(document).ready(function(){
                 }
             });
 
+            $("#results > #name").empty();
+            $("#results > #picture").empty();
+            $("#results > #details").empty();
             $("#results > #name").append(restaurantName);
             $("#results > #picture").append(pictureLink);
             $("#results > #details").append(cuisineType);
