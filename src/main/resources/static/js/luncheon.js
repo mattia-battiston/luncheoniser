@@ -1,35 +1,27 @@
-function displayBoolean(param) {
-    if (param == true) {
-
-    } else {
-
-    }
-}
-
 
 $(document).ready(function(){
     $("#randomise").click(function(){
 
         $.getJSON("/luncheoniser/pickluncheon", function( restaurantDetails ) {
 
-            var restaurantName;
-            var cuisineType;
-            var priceRange;
-            var avgRating;
-            var pictureLink;
-            var eatIn;
-            var takeAway;
+            var restaurantName = "";
+            var cuisineType = "";
+            var priceRange = "";
+            var avgRating = "";
+            var pictureLink = "";
+            var eatIn = "";
+            var takeAway = "";
 
             $.each( restaurantDetails, function( key, val ) {
                 switch (key) {
                     case ("restaurantName"):
-                        restaurantName =  "<h2 id='" + key + "'>Restaurant Name: " + val + "</h2>" ;
+                        restaurantName =  "<h2 id='" + key + "'>" + val + "</h2>" ;
                         break;
                     case ("pictureLink"):
-                        pictureLink =  "<img id='" + key + "' src='" + val + "' alt='restaurant_img'>" ;
+                        pictureLink =  "<img id='" + key + "' src='" + val + "' alt='restaurant_img' class='restaurantPicture' />" ;
                         break;
                     case ("cuisineType"):
-                        cuisineType =   "<p id='" + key + "'>Cuisine Type: " + val + "</p>" ;
+                        cuisineType =   "<p id='" + key + "'>Cuisine: " + val + "</p>" ;
                         break;
                     case ("priceRange"):
                         priceRange =   "<p id='" + key + "'>Price Range: £" + val + "</p>" ;
@@ -38,10 +30,10 @@ $(document).ready(function(){
                         avgRating =   "<p id='" + key + "'>Avg Rating: " + val + "</p>" ;
                         break;
                     case ("eatIn"):
-                        eatIn =   "<p id='" + key + "'>Eat In: " + displayBoolean(val) + "</p>" ;
+                        eatIn = val;
                         break;
                     case ("takeAway"):
-                        takeAway =   "<p id='" + key + "'>Take Away: " + val + "</p>" ;
+                        takeAway = val;
                         break;
                 }
             });
@@ -52,10 +44,10 @@ $(document).ready(function(){
             $("#results").append(priceRange);
             $("#results").append(avgRating);
             if(eatIn) {
-                $("#results").append(eatIn);
+                $("#results").append("<p><i class='fa fa-cutlery fa-lg'></i></p>");
             }
             if(takeAway) {
-                $("#results").append(takeAway);
+                $("#results").append("<p><i class='fa fa-home fa-lg'></i></p>");
             }
 
         });
