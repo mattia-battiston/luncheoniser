@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
+
+import static java.util.stream.Collectors.toList;
 
 @Component
 public class PickLuncheonUseCase {
@@ -17,13 +20,21 @@ public class PickLuncheonUseCase {
         this.getAllLocalRestaurants = getAllLocalRestaurants;
     }
 
-    public Restaurant pickLuncheon() {
+    public Restaurant pickLuncheon(RestaurantFilter restaurantFilter) {
         List<Restaurant> allLocalRestaurants = getAllLocalRestaurants.getAllLocalRestaurants();
 
-        return pickARandomRestaurant(allLocalRestaurants);
+        List<Restaurant> filteredRestaurants = allLocalRestaurants.stream()
+                .filter(notAnExcludedId(restaurantFilter))
+                .collect(toList());
+
+        return pickARandomRestaurantFrom(filteredRestaurants);
     }
 
-    private Restaurant pickARandomRestaurant(List<Restaurant> allLocalRestaurants) {
+    private Predicate<Restaurant> notAnExcludedId(RestaurantFilter restaurantFilter) {
+        return restaurant -> !restaurantFilter.getExcludedRestaurantIds().contains(restaurant.getId());
+    }
+
+    private Restaurant pickARandomRestaurantFrom(List<Restaurant> allLocalRestaurants) {
         int restaurantIndex = new Random().nextInt(allLocalRestaurants.size());
         return allLocalRestaurants.get(restaurantIndex);
     }
