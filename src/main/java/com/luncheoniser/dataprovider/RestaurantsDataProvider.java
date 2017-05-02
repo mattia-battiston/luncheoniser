@@ -32,17 +32,17 @@ public class RestaurantsDataProvider implements GetAllLocalRestaurants{
                 .withCuisineType(CuisineType.KOREAN)
                 .withPriceRange(new PriceRange(3.5, 7))
                 .withAverageRating(4.5)
-                .withPictureLink("https://media-cdn.tripadvisor.com/media/photo-s/0a/a5/81/bb/bibimbap-to-go.jpg")
+                .withPictureLink("http://misshappybelly.com/sites/default/files/styles/slideshow_style/public/slideshow/Bibimbap_Veggie_Style.jpg?itok=Tam8pPAj")
                 .canTakeAway()
                 .build();
 
-        Restaurant pumblechooks = new RestaurantBuilder()
+        Restaurant greenChicken = new RestaurantBuilder()
                 .withId(3)
-                .withName("Pumblechooks")
-                .withCuisineType(CuisineType.BRITISH)
-                .withPriceRange(new PriceRange(3.5, 8))
-                .withAverageRating(3.8)
-                .withPictureLink("https://media-cdn.tripadvisor.com/media/photo-s/04/ba/40/5c/pumblechook-s.jpg")
+                .withName("Assenheim 56")
+                .withCuisineType(CuisineType.GREASY)
+                .withPriceRange(new PriceRange(7, 7))
+                .withAverageRating(4.5)
+                .withPictureLink("http://thelastfooddragon.com/wp-content/uploads/2012/08/Assenheim-56-Meal.jpg")
                 .canEatIn()
                 .canTakeAway()
                 .build();
@@ -53,7 +53,7 @@ public class RestaurantsDataProvider implements GetAllLocalRestaurants{
                 .withCuisineType(CuisineType.ITALIAN)
                 .withPriceRange(new PriceRange(5, 20))
                 .withAverageRating(4.2)
-                .withPictureLink("https://media-cdn.tripadvisor.com/media/photo-s/08/af/70/70/strada-st-katharine-docks.jpg")
+                .withPictureLink("http://www.readingrestaurants.com/images/big/490.jpg")
                 .canEatIn()
                 .canTakeAway()
                 .build();
@@ -74,12 +74,12 @@ public class RestaurantsDataProvider implements GetAllLocalRestaurants{
                 .withCuisineType(CuisineType.SANDWICHES)
                 .withPriceRange(new PriceRange(3, 10))
                 .withAverageRating(4.1)
-                .withPictureLink("https://www.allinlondon.co.uk/images/venues/images_all/12543897.jpg")
+                .withPictureLink("http://www.stanzadesign.co.uk/images/commercial/pret-a-manger-02.jpg")
                 .canTakeAway()
                 .canEatIn()
                 .build();
 
-        return asList(tradeUnion, bibimbap, pumblechooks, strada, tomsKitchen, pret);
+        return asList(tradeUnion, bibimbap, greenChicken, strada, tomsKitchen, pret);
     }
 
 }
