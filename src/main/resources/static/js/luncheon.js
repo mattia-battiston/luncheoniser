@@ -21,13 +21,17 @@ $(document).ready(function(){
                         pictureLink =  "<img id='" + key + "' src='" + val + "' alt='restaurant_img' class='img-responsive' />" ;
                         break;
                     case ("cuisineType"):
-                        cuisineType =   "<p id='" + key + "'>Cuisine: " + val + "</p>" ;
+                        cuisineType =   "<h3 id='" + key + "'>" + val + "</h3>" ;
                         break;
                     case ("priceRange"):
-                        priceRange =   "<p id='" + key + "'>Price Range: £" + val + "</p>" ;
+                        priceRange =   "<h3 id='" + key + "'>" + val + "</h3>" ;
                         break;
                     case ("avgRating"):
-                        avgRating =   "<p id='" + key + "'>Avg Rating: " + val + "</p>" ;
+                        avgRating =  "<h3 id='" + key + "'>";
+                        for (i = 0; i < Math.round(val); i++) {
+                            avgRating += "<i class='fa fa-star fa-lg'></i>";
+                        }
+                        avgRating +=  "</h3>" ;
                         break;
                     case ("eatIn"):
                         eatIn = val;
@@ -47,10 +51,10 @@ $(document).ready(function(){
             $("#results > #details").append(priceRange);
             $("#results > #details").append(avgRating);
             if(eatIn) {
-                $("#results > #details").append("<p><i class='fa fa-cutlery fa-lg'></i></p>");
+                $("#results > #details").append("<p><i class='fa fa-cutlery fa-2x'></i> EAT IN</p>");
             }
             if(takeAway) {
-                $("#results > #details").append("<p><i class='fa fa-home fa-lg'></i></p>");
+                $("#results > #details").append("<p><i class='fa fa-home fa-2x'></i> TAKEAWAY</p>");
             }
 
         });

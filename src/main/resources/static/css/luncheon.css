@@ -1,8 +1,11 @@
+body {
+    font-family: 'Days One', sans-serif;
+}
+
 #randomise {
     margin-top: 50px;
 }
 
 #apptitle {
-    font-family: 'Days One', sans-serif;
     font-size: 100px;
 }
