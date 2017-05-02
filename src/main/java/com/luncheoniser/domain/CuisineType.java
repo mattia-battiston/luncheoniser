@@ -6,6 +6,6 @@ public enum CuisineType {
     CHINESE,
     INDIAN,
     BRITISH,
-    SANDWICHES, GREASY, KOREAN
+    SANDWICHES, GREASY, MIDDLEEAST, KOREAN
 
 }

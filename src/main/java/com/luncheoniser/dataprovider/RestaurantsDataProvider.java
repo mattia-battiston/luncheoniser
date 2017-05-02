@@ -79,7 +79,17 @@ public class RestaurantsDataProvider implements GetAllLocalRestaurants{
                 .canEatIn()
                 .build();
 
-        return asList(tradeUnion, bibimbap, greenChicken, strada, tomsKitchen, pret);
+        Restaurant falafelMan = new RestaurantBuilder()
+                .withId(7)
+                .withName("Petticoat Lane's Falafel Man")
+                .withCuisineType(CuisineType.MIDDLEEAST)
+                .withPriceRange(new PriceRange(3, 4))
+                .withAverageRating(5.0)
+                .withPictureLink("https://c1.staticflickr.com/1/445/19299125214_1438b1543c_b.jpg")
+                .canTakeAway()
+                .build();
+
+        return asList(tradeUnion, bibimbap, greenChicken, strada, tomsKitchen, pret, falafelMan);
     }
 
 }
