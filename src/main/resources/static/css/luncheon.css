@@ -2,7 +2,7 @@ body {
     font-family: 'Days One', sans-serif;
 }
 
-#randomise {
+.choosebutton {
     margin-top: 50px;
 }
 
