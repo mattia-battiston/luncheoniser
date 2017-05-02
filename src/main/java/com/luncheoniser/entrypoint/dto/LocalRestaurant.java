@@ -1,6 +1,6 @@
 package com.luncheoniser.entrypoint.dto;
 
-public class PickedRestaurant {
+public class LocalRestaurant {
 
     private int id;
     private final String restaurantName;
@@ -11,7 +11,7 @@ public class PickedRestaurant {
     private final boolean eatIn;
     private final boolean takeAway;
 
-    public PickedRestaurant(int id, String restaurantName, String cuisineType, String priceRange, String avgRating, String pictureLink, boolean eatIn, boolean takeAway) {
+    public LocalRestaurant(int id, String restaurantName, String cuisineType, String priceRange, String avgRating, String pictureLink, boolean eatIn, boolean takeAway) {
         this.id = id;
         this.restaurantName = restaurantName;
         this.cuisineType = cuisineType;

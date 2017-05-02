@@ -1,7 +1,7 @@
 package com.luncheoniser.entrypoint;
 
 import com.luncheoniser.domain.Restaurant;
-import com.luncheoniser.entrypoint.dto.PickedRestaurant;
+import com.luncheoniser.entrypoint.dto.LocalRestaurant;
 import com.luncheoniser.usecase.PickLuncheonUseCase;
 import com.luncheoniser.usecase.RestaurantFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +29,14 @@ public class PickLuncheonController {
 
     @RequestMapping(value = "/pickluncheon", method = GET)
     @ResponseBody
-    public PickedRestaurant pickLuncheon(
+    public LocalRestaurant pickLuncheon(
             @RequestParam(value = "excludedRestaurantIds", required = false) String excludedRestaurantIds
         ) {
         RestaurantFilter restaurantFilter = new RestaurantFilter(parse(excludedRestaurantIds));
 
         Restaurant restaurant = pickLuncheonUseCase.pickLuncheon(restaurantFilter);
 
-        return new PickedRestaurant(
+        return new LocalRestaurant(
                 restaurant.getId(),
                 restaurant.getName(),
                 restaurant.getCuisineType().name(),
