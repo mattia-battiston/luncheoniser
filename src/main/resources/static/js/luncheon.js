@@ -55,23 +55,49 @@ function processResults (restaurantDetails) {
 }
 
 
+function showPizza() {
+    var pizza =  "<img src='https://cdn.dribbble.com/users/12755/screenshots/1036842/pizza2.gif' class='img-responsive' />" ;
+    $("#pizza").append(pizza);
+}
+
+function randomise() {
+    $("#pizza").empty();
+
+    $.getJSON("/luncheoniser/pickluncheon?eatingLocation=eatin,takeaway", function( restaurantDetails ) {
+        processResults(restaurantDetails);
+    });
+}
+
+function eatin() {
+    $("#pizza").empty();
+
+    $.getJSON("/luncheoniser/pickluncheon?eatingLocation=eatin", function( restaurantDetails ) {
+        processResults(restaurantDetails);
+    });
+}
+
+function takeaway() {
+    $("#pizza").empty();
+
+    $.getJSON("/luncheoniser/pickluncheon?eatingLocation=takeaway", function( restaurantDetails ) {
+        processResults(restaurantDetails);
+    });
+}
+
 $(document).ready(function(){
     $("#randomise").click(function(){
-        $.getJSON("/luncheoniser/pickluncheon?eatingLocation=eatin,takeaway", function( restaurantDetails ) {
-            processResults(restaurantDetails);
-        });
+        showPizza();
+        setTimeout(randomise, 3000);
     });
 
     $("#eatIn").click(function(){
-        $.getJSON("/luncheoniser/pickluncheon?eatingLocation=eatin", function( restaurantDetails ) {
-            processResults(restaurantDetails);
-        });
+        showPizza();
+        setTimeout(eatin, 3000);
     });
 
     $("#takeaway").click(function(){
-        $.getJSON("/luncheoniser/pickluncheon?eatingLocation=takeaway", function( restaurantDetails ) {
-            processResults(restaurantDetails);
-        });
+        showPizza();
+        setTimeout(takeaway, 3000);
     });
 
 });
