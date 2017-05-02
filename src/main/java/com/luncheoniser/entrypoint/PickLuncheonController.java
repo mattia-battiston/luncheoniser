@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 import static java.util.Arrays.stream;
+import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.split;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -30,9 +32,13 @@ public class PickLuncheonController {
     @RequestMapping(value = "/pickluncheon", method = GET)
     @ResponseBody
     public LocalRestaurant pickLuncheon(
-            @RequestParam(value = "excludedRestaurantIds", required = false) String excludedRestaurantIds
+            @RequestParam(value = "excludedRestaurantIds", required = false) String excludedRestaurantIds,
+            @RequestParam(value = "eatingLocation", required = false) String eatingLocations
         ) {
-        RestaurantFilter restaurantFilter = new RestaurantFilter(parse(excludedRestaurantIds));
+        RestaurantFilter restaurantFilter = new RestaurantFilter();
+        restaurantFilter.setExcludedRestaurantIds(parseExcludedRestaurantIds(excludedRestaurantIds));
+        restaurantFilter.setEatIn(isEatInOk(eatingLocations));
+        restaurantFilter.setTakeAway(isTakeAwayOk(eatingLocations));
 
         Restaurant restaurant = pickLuncheonUseCase.pickLuncheon(restaurantFilter);
 
@@ -48,7 +54,24 @@ public class PickLuncheonController {
         );
     }
 
-    private List<Integer> parse(String excludedRestaurantIds) {
+    private boolean isTakeAwayOk(String eatingLocations) {
+        if(isEmpty(eatingLocations)) {
+            return true;
+        }
+        return eatingLocations.contains("takeaway");
+    }
+
+    private boolean isEatInOk(String eatingLocations) {
+        if(isEmpty(eatingLocations)) {
+            return true;
+        }
+        return eatingLocations.contains("eatin");
+    }
+
+    private List<Integer> parseExcludedRestaurantIds(String excludedRestaurantIds) {
+        if(isEmpty(excludedRestaurantIds)) {
+            return emptyList();
+        }
         return stream(split(excludedRestaurantIds, ",")).mapToInt(Integer::parseInt).boxed().collect(toList());
     }
 
